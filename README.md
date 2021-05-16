@@ -6,4 +6,6 @@
 
 [Pull Request](https://github.com/malakMomani/basic-auth/pull/1)
 
-[heroku deployment](https://malak-basic-express-server.herokuapp.com/)
+[heroku deployment](https://malak-basic-auth.herokuapp.com/)
+
+![UML Digranm](registation.png)
