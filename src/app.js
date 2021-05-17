@@ -16,10 +16,9 @@ app.use(express.json());
 
 // Process FORM intput and put the data on req.body
 app.use(express.urlencoded({ extended: true }));
-// app.use('*', notFoundHandler);
-// app.use(errorHandler);
-
 app.use(router);
+app.use('*', notFoundHandler);
+app.use(errorHandler);
 
 
 function start(port) {

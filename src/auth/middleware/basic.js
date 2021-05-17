@@ -30,13 +30,20 @@ module.exports = async (req, res, next) => {
        - bcrypt does this by re-encrypting the plaintext password and comparing THAT
     3. Either we're valid or we throw an error
   */
-    const user = await Users.findOne({ username: username })
-    const valid = await bcrypt.compare(password, user.password);
-    if (valid) {
-      next();
-    }
-    else {
+
+    if(username && password) {
+      const user = await Users.findOne({ username: username })
+      const valid = await bcrypt.compare(password, user.password);
+      if (valid) {
+         next();
+        }else {
+      next('wrong password');
+      }
+    }else {
       next('Invalid User')
     }
+    
+    
+    
 
 }
