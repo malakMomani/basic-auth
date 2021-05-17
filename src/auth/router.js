@@ -10,11 +10,11 @@ const router = express.Router();
 router.post('/signup', async (req, res) => {
 
   try {
-    req.body.password = await bcrypt.hash(req.body.password, 10);
+    // console.log('I\'m here');
     const user = new Users(req.body);
     const record = await user.save(req.body);
     res.status(201).json(record);
-  } catch (e) { res.status(403).send("Error Creating User"); }
+  } catch (e) { res.status(403).send(e,"Error Creating User"); }
 });
 
 
